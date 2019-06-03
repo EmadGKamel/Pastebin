@@ -1,0 +1,27 @@
+{% extends "app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        {% comment %} <img class="rounded-circle account-img" src="{{ user.profile.image.url }}"> {% endcomment %}
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <ul class="list-group">
+                {% for snippet in all_snippets %}
+                    <li class="list-group-item list-group-item-secondary">
+                    <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><a href="{% url 'app:detail' pk=snippet.id %}">{{ snippet.title }}</a></h5>
+                    <small>{{ snippet.creation_date|date:"d/n/y, g:iA" }}</small>
+                    <a class="mr-2" href="#">{{ snippet.owner }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

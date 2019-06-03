@@ -1,15 +1,15 @@
 {% extends "app/base.html" %}
 {% block content %}
-        {% if snippet %}
-        <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="#">{{ snippet.owner }}</a>
-              <small class="text-muted">{{ snippet.creation_date|date:"d/n/y, g:iA" }}</small>
-            </div>
-            <h2><a class="article-title" href="#">{{ snippet.title }}</a></h2>
-            <p class="article-content">{{ snippet.content }}</p>
-          </div>
-        </article>
-        {% endif%}
+  {% if snippet_detail %}
+    <article class="media content-section">
+      <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ snippet_detail.owner }}</a>
+          <small class="text-muted">{{ snippet_detail.creation_date|date:"d/n/y, g:iA" }}</small>
+        </div>
+        <h2><a class="article-title" href="#">{{ snippet_detail.title }}</a></h2>
+        <p class="article-content">{{ snippet_detail.content }}</p>
+      </div>
+    </article>
+  {% endif %}
 {% endblock content %}

@@ -29,17 +29,23 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'app:index' %}">Home</a>
-              <a class="nav-item nav-link" href="#">About</a>
+              <a class="nav-item nav-link" href="#">API</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="{% url 'app:register' %}">Register</a>
+              {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'app:profile' %}">Profile</a>
+                <a class="nav-item nav-link" href="{% url 'app:logout' %}">Logout</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'app:login' %}">Login</a>
+                <a class="nav-item nav-link" href="{% url 'app:register' %}">Register</a>
+              {% endif %}
             </div>
           </div>
         </div>
       </nav>
     </header>
+
     <main role="main" class="container">
       <div class="row">
         <div class="col-md-8">
@@ -50,7 +56,27 @@
               </div>
             {% endfor %}
           {% endif %}
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
+        </div>
+        <div class="col-md-4">
+          <div class="content-section">
+            <h3>Latest snippets</h3>
+            <p class='text-muted'>Here is the latest snippets from users
+              <ul class="list-group">
+                {% for snippet in snippets %}
+                  <li class="list-group-item list-group-item-secondary">
+                  <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><a href="{% url 'app:detail' pk=snippet.id %}">{{ snippet.title }}</a></h5>
+                    <small>{{ snippet.creation_date|date:"d/n/y, g:iA" }}</small>
+                    <a class="mr-2" href="{% url 'app:profile' %}">{{ snippet.owner }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
