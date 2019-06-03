@@ -1,20 +1,20 @@
 [[source]]
-
-url = "https://pypi.python.org/simple"
-verify_ssl = true
 name = "pypi"
-
+url = "https://pypi.org/simple"
+verify_ssl = true
 
 [dev-packages]
-
+pylint = "*"
 
 [packages]
-livereload ='*'
-ibmcloudenv ='~=0.0'
-Django = "==1.11.8"
-gunicorn = "==19.7.1"
-whitenoise= "==3.3.1"
+gunicorn = "==19.9"
+whitenoise = "==4.1.2"
+ibmcloudenv = "*"
+livereload = "*"
+django-crispy-forms = "*"
+djangorestframework = "*"
+Django = "==2.2"
+django-import-export = "*"
 
 [requires]
-python_version = '3.6.2'
-
+python_version = "3.7"

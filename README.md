@@ -1,92 +1,53 @@
-## Pastebin
+# Pastebin
 
-Basic Web project with Python with Django
+A Web project help you share
+codes and notes with your friends 
+## Made with ❤ by Python with Django
+![language](https://img.shields.io/badge/language-Python-lightgrey.svg)
+![Platform](https://img.shields.io/badge/platform-DJANGO-lightgrey.svg)
 
-[![](https://img.shields.io/badge/IBM%20Cloud-powered-blue.svg)](https://bluemix.net)
-![Platform](https://img.shields.io/badge/platform-DJANGO-lightgrey.svg?style=flat)
-
-### Table of Contents
+## Table of Contents
 * [Summary](#summary)
-* [Requirements](#requirements)
-* [Configuration](#configuration)
-* [Run](#run)
-* [Debug](#debug)
+* [Installation](#Installation)
+* [Example](#Example)
+
 
 <a name="summary"></a>
-### Summary
-The Web basic starter contains an opinionated set of files for web serving:
+## Summary
+Pastebin is a clone of the original [Pastebin](https://pastebin.com/) that include the following features:
 
-- `app/templates/index.html`
-- `staticfiles/js/bundle.js`
-- `staticfiles/css/default.css`
-
+- A hosted web version on IBM CLoud at [pastbin](https://pastebin.eu-gb.mybluemix.net/) 
+- An API to CRUD the snippets, users and groups
 
 
-<a name="enablement"></a>
-### IBM Cloud Enablement
-
-<a name="requirements"></a>
-### Requirements
-#### Local Development Tools Setup (optional)
-
-- If you don't already have it, install [Python](https://www.python.org/downloads/)
-
-#### IBM Cloud development tools setup (optional)
-
-1. Install [IBM Cloud Developer Tools](https://console.bluemix.net/docs/cli/idt/setting_up_idt.html#add-cli) on your machine  
-2. Install the plugin with: `bx plugin install dev -r bluemix`
-
-
-#### IBM Cloud DevOps setup (optional)
-
-[![Create Toolchain](https://console.ng.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.ng.bluemix.net/devops/setup/deploy/)
-
-[IBM Cloud DevOps](https://www.ibm.com/cloud-computing/bluemix/devops) services provides toolchains as a set of tool integrations that support development, deployment, and operations tasks inside IBM Cloud. The "Create Toolchain" button creates a DevOps toolchain and acts as a single-click deploy to IBM Cloud including provisioning all required services. 
-
-***Note** you must publish your project to [Github](https://github.com/) for this to work.
-
-
-
-<a name="configuration"></a>
-### Configuration
-
-The project contains IBM Cloud specific files that are used to deploy the application as part of an IBM Cloud DevOps flow. The `.bluemix` directory contains files used to define the IBM Cloud toolchain and pipeline for your application. The `manifest.yml` file specifies the name of your application in IBM Cloud, the timeout value during deployment, and which services to bind to.
-
-Credentials are either taken from the VCAP_SERVICES environment variable if in IBM Cloud, or from a config file if running locally. 
-
-
-<a name="run"></a>
-### Run
-#### Using IBM Cloud development CLI
-The IBM Cloud development plugin makes it easy to compile and run your application if you do not have all of the tools installed on your computer yet. Your application will be compiled with Docker containers. To compile and run your app, run:
-
-```bash
-bx dev build
-bx dev run
-```
-
-
-#### Using your local development environment
-
-
-
-##### Endpoints
-
-Your application is running at: `http://localhost:3000/` in your browser.
-
-- Health endpoint: `/health`
-
-
-
-<a name="debug"></a>
-### Debug
-
-#### Using IBM Cloud development CLI
-To build and debug your app, run:
-```bash
-bx dev build --debug
-bx dev debug
-```
-#### Using your local development environment
-To debug a `django` project run `python manage.py runserver` with DEBUG set to True in settings.py to start a native django development server. This comes with the Django's stack-trace debugger, which will present runtime failure stack-traces. For more information, see [Django's documentation](https://docs.djangoproject.com/en/2.0/ref/settings/).
-
+<a name="Installation"></a>
+## Installation
+This project tested with [Python 3.7](https://www.python.org/downloads/release/python-373/), [Django 2.2](https://www.djangoproject.com/download/), and [Pipenv](https://docs.pipenv.org/en/latest/#install-pipenv-today) and it's highly recommend to use Pipenv over pip
+### Steps
+1. Open the terminal or CMD and paste the following commands:
+    ```bash
+    git clone https://github.com/
+    cd Pastebin
+    ```
+2. After checking Python version, use one of the following methods to install the depends:
+    1. For Pipenv use the following command
+        ```bash
+        pipenv install
+        pipenv shell   # to run the virual environment
+        ```    
+    2. For pip use the following command
+        ```bash
+        pip install -r requirements.txt
+        ```
+3. Now run these two commands to make a sqlite db instanse
+    ```bash
+    python manage.py makemigrations --settings=Pastebin.settings.development
+    python manage.py migrate --settings=Pastebin.settings.development
+    ```
+4. You're ready to bring up your local server
+    ```bash
+    python manage.py runserver --settings=Pastebin.settings.development
+    ```
+    Your application is running at: `http://localhost:8000/` in your browser.
+<a name="Example"></a>
+## Example

@@ -1,0 +1,14 @@
+{% extends "app/base.html" %}
+{% block content %}
+<ul class="list-group">
+    {% for snippet in snippets %}
+      <li class="list-group-item list-group-item-secondary">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1"><a href="{% url 'app:detail' pk=snippet.id %}">{{ snippet.title }}</a></h5>
+        <small>{{ snippet.creation_date|date:"d/n/y, g:iA" }}</small>
+        <a class="mr-2" href="#">{{ snippet.owner }}</a>
+      </li>
+    {% endfor %}
+    </ul>
+{% endblock content %}
+
