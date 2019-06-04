@@ -5,7 +5,6 @@ applications:
   path: .
   name: Pastebin
   buildpack: python_buildpack
-  command: gunicorn --env DJANGO_SETTINGS_MODULE=Pastebin.settings.production Pastebin.wsgi -b 0.0.0.0:$PORT
   memory: 256MB
   domain: eu-gb.mybluemix.net
   host: pastebin

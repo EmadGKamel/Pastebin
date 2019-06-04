@@ -1,0 +1,1 @@
+web: gunicorn --env DJANGO_SETTINGS_MODULE=Pastebin.settings.production Pastebin.wsgi -b 0.0.0.0:$PORT

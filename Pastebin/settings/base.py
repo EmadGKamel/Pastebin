@@ -7,7 +7,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 ALLOWED_HOSTS = ['*']
+
 APPEND_SLASH = True
+
 
 # Application definition
 INSTALLED_APPS = [

@@ -20,7 +20,6 @@ def detail(request, pk):
 
 @login_required
 def profile(request):
-    print(request)
     context = {
         'snippets': Snippet.objects.all(),
         'all_snippets': Snippet.objects.all().filter(owner=request.user.id)
