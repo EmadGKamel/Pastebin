@@ -16,6 +16,8 @@ djangorestframework = "*"
 Django = "==2.2"
 django-import-export = "*"
 psycopg2 = "*"
+django-filter = "==2.1.0"
+django-cors-headers = "==3.0.1"
 
 [requires]
 python_version = "3.7"
