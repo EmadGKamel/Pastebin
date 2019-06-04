@@ -10,11 +10,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = '!@qgyg9fl(9m4fquqy0^g2cwxqmy6ct506!q&nejnae5w$$dz_'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 ALLOWED_HOSTS = ['*']
-
+APPEND_SLASH = True
 
 # Application definition
 INSTALLED_APPS = [

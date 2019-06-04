@@ -6,3 +6,4 @@ python manage.py makemigrations --settings=Pastebin.settings.development
 python manage.py migrate --settings=Pastebin.settings.development
 python manage.py showmigrations --settings=Pastebin.settings.development
 python manage.py migrate --fake app zero --settings=Pastebin.settings.development
+python manage.py collectstatic --help --settings=Pastebin.settings.development
