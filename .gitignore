@@ -5,3 +5,4 @@ server/localdev-config.json
 .env
 .vscode/settings.json
 db.sqlite
+requirements.txt
