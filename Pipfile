@@ -15,6 +15,7 @@ django-crispy-forms = "*"
 djangorestframework = "*"
 Django = "==2.2"
 django-import-export = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.7"
