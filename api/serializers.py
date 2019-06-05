@@ -6,7 +6,7 @@ from django.contrib.auth.models import User, Group
 class SnippetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Snippet
-        fields = ('id', 'owner', 'title', 'content', 'creation_date', 'expiration_date', 'exposure_status',)
+        fields = ( 'id', 'owner', 'title', 'content', 'creation_date', 'expiration_date', 'exposure_status',)
  
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,4 +18,4 @@ class UserSerializer(serializers.ModelSerializer):
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
-        fields = ('name',)
+        fields = ( 'name',)

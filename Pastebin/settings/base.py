@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['*']
 
 APPEND_SLASH = True
-
+#AUTH_USER_MODEL = 'app.CustomUser'
 
 # Application definition
 INSTALLED_APPS = [
@@ -108,7 +108,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'app:index'
+LOGIN_REDIRECT_URL = 'app:snippet-list'
 LOGIN_URL = 'login'
 
 REST_FRAMEWORK = {
