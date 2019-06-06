@@ -1,9 +1,11 @@
-from .models import Snippet, CustomUser
+import csv
+from django.http import HttpResponse
+from app.models import Snippet, CustomUser
+from app.helpers import get_pastes_num
 from django.contrib import messages
 from django.http import JsonResponse
-from .forms import UserRegistrationForm
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
+from app.forms import UserRegistrationForm
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
@@ -77,3 +79,16 @@ def register(request):
 def health(request):
     state = {"status": "UP"}
     return JsonResponse(state)
+
+def statistics(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="statistics.csv"'
+    writer = csv.writer(response)
+
+    writer.writerow(['username', 'snippets_number'])
+    writer.writerows(get_pastes_num())
+    return response
+
+    
+
+   
