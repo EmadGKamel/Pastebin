@@ -1,7 +1,7 @@
 from api.serializers import SnippetSerializer, UserSerializer, GroupSerializer
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import Group
 from rest_framework import viewsets, permissions
-from app.models import Snippet
+from app.models import Snippet, CustomUser
 
 
 class SnippetViewSet(viewsets.ModelViewSet):
@@ -10,7 +10,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all().order_by('-date_joined')
+    queryset = CustomUser.objects.all().order_by('-date_joined')
     serializer_class = UserSerializer
 
 

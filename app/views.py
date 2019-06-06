@@ -1,4 +1,4 @@
-from .models import Snippet, User
+from .models import Snippet, CustomUser
 from django.contrib import messages
 from django.http import JsonResponse
 from .forms import UserRegistrationForm

@@ -1,4 +1,4 @@
-from app.models import Snippet
+from app.models import Snippet, CustomUser
 from rest_framework import serializers
 from django.contrib.auth.models import User, Group
 
@@ -11,7 +11,7 @@ class SnippetSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
+        model = CustomUser
         fields = ( 'username', 'email', 'groups',)
 
 

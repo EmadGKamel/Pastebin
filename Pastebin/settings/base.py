@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['*']
 
 APPEND_SLASH = True
-#AUTH_USER_MODEL = 'app.CustomUser'
+AUTH_USER_MODEL = 'app.CustomUser'
 
 # Application definition
 INSTALLED_APPS = [
